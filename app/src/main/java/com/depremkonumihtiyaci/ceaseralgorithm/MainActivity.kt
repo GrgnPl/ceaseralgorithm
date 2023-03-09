@@ -2,11 +2,12 @@ package com.depremkonumihtiyaci.ceaseralgorithm
 
 import android.content.ClipboardManager
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.depremkonumihtiyaci.ceaseralgorithm.databinding.ActivityMainBinding
-
+import java.nio.channels.InterruptedByTimeoutException
 
 
 class MainActivity : AppCompatActivity() {
@@ -36,6 +37,10 @@ class MainActivity : AppCompatActivity() {
             binding.textYazi.text?.clear()
             binding.shiftText.text?.clear()
             binding.textView.text = ""
+        }
+        binding.floatingActionButton.setOnClickListener {
+            val intent = Intent(this@MainActivity,VigenereActivity::class.java)
+            startActivity(intent)
         }
     }
     fun encrypt(text: String, shift: Int): String {
